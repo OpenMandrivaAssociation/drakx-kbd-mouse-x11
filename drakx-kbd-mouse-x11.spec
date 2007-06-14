@@ -5,8 +5,8 @@
 
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
-Version:  0.17
-Release:  %mkrel 2
+Version:  0.18
+Release:  %mkrel 1
 Source0:  %name-%version.tar.bz2
 License:  GPL
 Group:    System/Configuration/Other
