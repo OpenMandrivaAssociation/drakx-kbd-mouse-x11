@@ -1,11 +1,11 @@
-%define drakxtools_required_version  10.4.94-1mdv2007.0
+%define drakxtools_required_version  10.4.144
 %define drakxtools_conflicted_version  10.4.89
 
 %define libname %mklibname %{name}
 
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
-Version:  0.18
+Version:  0.19
 Release:  %mkrel 1
 Source0:  %name-%version.tar.bz2
 License:  GPL
