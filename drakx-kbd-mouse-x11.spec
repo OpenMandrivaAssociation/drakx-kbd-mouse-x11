@@ -5,7 +5,7 @@
 
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
-Version:  0.20
+Version:  0.21
 Release:  %mkrel 1
 Source0:  %name-%version.tar.bz2
 License:  GPL
@@ -22,8 +22,8 @@ BuildRoot: %_tmppath/%name-%version-buildroot
 Conflicts: drakxtools <= %drakxtools_conflicted_version
 # for man pages:
 Conflicts: drakxtools-curses <= %drakxtools_conflicted_version
-# for Cards+ using nvidia97xx instead of nvidia, and nvidia71xx instead of NVIDIA_LEGACY:
-Conflicts: ldetect-lst < 0.1.151
+# for Cards+ using nvidia-current|nvidia71xx|nvidia96xx instead of nvidia/nvidia97xx/NVIDIA_LEGACY
+Conflicts: ldetect-lst < 0.1.174
 
 # we don't want to require X libs (xf86misc is always used inside an eval)
 %define _requires_exceptions ^libX
