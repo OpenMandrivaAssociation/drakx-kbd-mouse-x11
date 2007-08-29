@@ -6,7 +6,7 @@
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
 Version:  0.22
-Release:  %mkrel 1
+Release:  %mkrel 2
 Source0:  %name-%version.tar.bz2
 License:  GPL
 Group:    System/Configuration/Other
@@ -46,18 +46,44 @@ rm -fr $RPM_BUILD_ROOT
 #install lang
 %find_lang %name
 
+# consolehelper configuration
+# ask for user password
+ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/XFdrake
+mkdir -p %{buildroot}%{_sysconfdir}/pam.d/
+cat > %{buildroot}%{_sysconfdir}/pam.d/xfdrake <<EOF
+#%PAM-1.0
+auth       sufficient   pam_rootok.so
+auth       required     pam_console.so
+auth       include      system-auth
+account    required     pam_permit.so
+session    optional     pam_xauth.so
+EOF
+mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
+cat > %{buildroot}%{_sysconfdir}/security/console.apps/xfdrake <<EOF
+USER=<user>
+PROGRAM=/usr/sbin/XFdrake
+FALLBACK=false
+SESSION=true
+EOF
+
+ln -s %{_sysconfdir}/security/console.apps/xfdrake \
+        %{buildroot}%{_sysconfdir}/security/console.apps/XFdrake
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc COPYING NEWS
+%config(noreplace) %{_sysconfdir}/pam.d/xfdrake
+%config(noreplace) %{_sysconfdir}/security/console.apps/xfdrake
+# symlink
+%{_sysconfdir}/security/console.apps/XFdrake
+%_bindir/XFdrake
 %_sbindir/*
 %_datadir/libDrakX/pixmaps/*
 /usr/lib/libDrakX/auto/*
 /usr/lib/libDrakX/xf86misc/main.pm
 /usr/lib/libDrakX/Xconfig/*.pm
 /usr/lib/libDrakX/*.pm
-
-
 
