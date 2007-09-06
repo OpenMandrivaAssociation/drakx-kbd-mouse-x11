@@ -8,7 +8,7 @@ Name:     drakx-kbd-mouse-x11
 Version:  0.23
 Release:  %mkrel 1
 Source0:  %name-%version.tar.bz2
-License:  GPL
+License:  GPLv2+
 Group:    System/Configuration/Other
 Url:      http://www.mandrivalinux.com/en/cvs.php3
 BuildRequires: perl-MDK-Common-devel gettext perl-devel
