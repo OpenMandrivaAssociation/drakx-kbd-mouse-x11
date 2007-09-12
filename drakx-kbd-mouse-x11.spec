@@ -6,7 +6,7 @@
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
 Version:  0.25
-Release:  %mkrel 1
+Release:  %mkrel 2
 Source0:  %name-%version.tar.bz2
 License:  GPLv2+
 Group:    System/Configuration/Other
@@ -14,6 +14,8 @@ Url:      http://www.mandrivalinux.com/en/cvs.php3
 BuildRequires: perl-MDK-Common-devel gettext perl-devel
 BuildRequires: libxxf86misc-devel ncurses-devel
 Requires: drakxtools-curses => %drakxtools_required_version
+# need the common pam config files for usermode config
+Requires: usermode-consoleonly >= 1.92-4mdv
 %ifnarch %{sunsparc}
 Requires: monitor-edid >= 1.5
 %endif %{sunsparc}
@@ -50,14 +52,7 @@ rm -fr $RPM_BUILD_ROOT
 # ask for user password
 ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/XFdrake
 mkdir -p %{buildroot}%{_sysconfdir}/pam.d/
-cat > %{buildroot}%{_sysconfdir}/pam.d/xfdrake <<EOF
-#%PAM-1.0
-auth       sufficient   pam_rootok.so
-auth       required     pam_console.so
-auth       include      system-auth
-account    required     pam_permit.so
-session    optional     pam_xauth.so
-EOF
+ln -sf %{_sysconfdir}/pam.d/mandriva-simple-auth %{buildroot}%{_sysconfdir}/pam.d/xfdrake
 mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
 cat > %{buildroot}%{_sysconfdir}/security/console.apps/xfdrake <<EOF
 USER=<user>
