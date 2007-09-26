@@ -5,7 +5,7 @@
 
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
-Version:  0.31
+Version:  0.32
 Release:  %mkrel 1
 Source0:  %name-%version.tar.bz2
 License:  GPLv2+
@@ -17,7 +17,7 @@ Requires: drakxtools-curses => %drakxtools_required_version
 # need the common pam config files for usermode config
 Requires: usermode-consoleonly >= 1.92-4mdv2008.0
 %ifnarch %{sunsparc}
-Requires: monitor-edid >= 1.5
+Requires: monitor-edid >= 1.12
 %endif %{sunsparc}
 BuildRoot: %_tmppath/%name-%version-buildroot
 # for program:
