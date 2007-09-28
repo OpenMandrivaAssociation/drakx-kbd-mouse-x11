@@ -1,4 +1,4 @@
-%define drakxtools_required_version  10.4.203
+%define drakxtools_required_version  10.4.221
 %define drakxtools_conflicted_version  10.4.89
 
 %define libname %mklibname %{name}
