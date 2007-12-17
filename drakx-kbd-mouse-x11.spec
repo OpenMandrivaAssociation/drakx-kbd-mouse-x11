@@ -19,7 +19,6 @@ Requires: usermode-consoleonly >= 1.92-4mdv2008.0
 %ifnarch %{sunsparc}
 Requires: monitor-edid >= 1.12
 %endif %{sunsparc}
-BuildRoot: %_tmppath/%name-%version-buildroot
 # for program:
 Conflicts: drakxtools <= %drakxtools_conflicted_version
 # for man pages:
