@@ -82,5 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 /usr/lib/libDrakX/auto/*
 /usr/lib/libDrakX/xf86misc/main.pm
 /usr/lib/libDrakX/Xconfig/*.pm
+%dir /usr/lib/libDrakX/Xconfig
 /usr/lib/libDrakX/*.pm
 
