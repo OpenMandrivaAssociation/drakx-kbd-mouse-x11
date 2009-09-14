@@ -5,10 +5,9 @@
 
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
-Version:  0.78
-Release:  %mkrel 2
+Version:  0.79
+Release:  %mkrel 1
 Source0:  %name-%version.tar.bz2
-Patch0:   0001-XFdrake-fix-DontZap-option-issue-with-old-xorg.co.patch
 License:  GPLv2+
 Group:    System/Configuration/Other
 Url:      http://www.mandrivalinux.com/en/cvs.php3
