@@ -39,7 +39,6 @@ XFdrake enables to configure the graphic card.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %make
