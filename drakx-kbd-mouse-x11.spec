@@ -6,8 +6,9 @@
 Summary:  Tools to configure the keyboard, the mice and the graphic card
 Name:     drakx-kbd-mouse-x11
 Version:  0.84
-Release:  %mkrel 1
+Release:  %mkrel 2
 Source0:  %name-%version.tar.bz2
+Patch0:   0001-Enable-ctrl-alt-bksp-by-default.patch
 License:  GPLv2+
 Group:    System/Configuration/Other
 Url:      http://www.mandrivalinux.com/en/cvs.php3
@@ -39,6 +40,7 @@ XFdrake enables to configure the graphic card.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %make
