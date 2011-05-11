@@ -16,9 +16,9 @@ BuildRequires: libxxf86misc-devel ncurses-devel
 Requires: drakxtools-curses => %drakxtools_required_version
 # need the common pam config files for usermode config
 Requires: usermode-consoleonly >= 1.92-4mdv2008.0
-%ifnarch %{sunsparc}
+%ifnarch %{sparcx}
 Requires: monitor-edid >= 1.12
-%endif %{sunsparc}
+%endif %{sparcx}
 BuildRoot: %_tmppath/%name-%version-buildroot
 # for program:
 Conflicts: drakxtools <= %drakxtools_conflicted_version
