@@ -48,7 +48,7 @@ XFdrake enables to configure the graphic card.
 %make
 
 %install
-rm -fr $RPM_BUILD_ROOT
+rm -fr %{buildroot}
 %makeinstall_std
 
 #install lang
@@ -71,7 +71,7 @@ ln -s %{_sysconfdir}/security/console.apps/xfdrake \
         %{buildroot}%{_sysconfdir}/security/console.apps/XFdrake
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 # add nokmsboot if necessary and rebuild initrds so that they handle it
 %triggerpostun -- drakx-kbd-mouse-x11 < 0.91
