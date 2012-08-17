@@ -3,9 +3,9 @@
 
 Summary: 	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
-Version:	0.92
-Release:	4
-Source0:	%{name}-%{version}.tar.bz2
+Version:	0.93
+Release:	1
+Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		http://www.mandrivalinux.com/en/cvs.php3
