@@ -42,7 +42,7 @@ XFdrake enables to configure the graphic card.
 %setup -q
 
 %build
-%make
+%make OPTIMIZED="%{optflags} -Os"
 
 %install
 %makeinstall_std
