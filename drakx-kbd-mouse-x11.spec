@@ -33,7 +33,7 @@ Conflicts:	dracut < 008-6
 Conflicts:	udev < 165-5
 
 # we don't want to require X libs (xf86misc is always used inside an eval)
-%define _requires_exceptions ^libX
+%define  __noautoreq ^libX
 
 %description
 Keyboarddrake enables to configure  the keyboard.
