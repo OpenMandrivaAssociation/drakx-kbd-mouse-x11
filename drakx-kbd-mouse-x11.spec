@@ -2,11 +2,11 @@
 
 Summary: 	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
-Version:	0.97
-Release:	2
+Version:	0.100
+Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Other
-Url:		https://abf.rosalinux.ru/soft/drakx-kbd-mouse-x11
+Url:		https://abf.rosalinux.ru/proyvind/drakx-kbd-mouse-x11
 Source0:	%{name}-%{version}.tar.xz
 
 BuildRequires:	gettext
@@ -54,7 +54,7 @@ ln -sf %{_sysconfdir}/pam.d/mandriva-simple-auth %{buildroot}%{_sysconfdir}/pam.
 mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
 cat > %{buildroot}%{_sysconfdir}/security/console.apps/xfdrake <<EOF
 USER=<user>
-PROGRAM=/usr/sbin/XFdrake
+PROGRAM=%{_sbindir}/XFdrake
 FALLBACK=false
 SESSION=true
 EOF
@@ -64,7 +64,7 @@ ln -s %{_sysconfdir}/security/console.apps/xfdrake \
 
 # add nokmsboot if necessary and rebuild initrds so that they handle it
 %triggerpostun -- drakx-kbd-mouse-x11 < 0.91
-perl -I/usr/lib/libDrakX -MXconfig::various -e 'Xconfig::various::setup_kms();' &>/dev/null
+perl -I%{_prefix}/lib/libDrakX -MXconfig::various -e 'Xconfig::various::setup_kms();' &>/dev/null
 %{_sbindir}/bootloader-config --action rebuild-initrds || :
 
 %files -f %{name}.lang
@@ -77,9 +77,8 @@ perl -I/usr/lib/libDrakX -MXconfig::various -e 'Xconfig::various::setup_kms();' 
 %{_bindir}/XFdrake
 %{_sbindir}/*
 %{_datadir}/libDrakX/pixmaps/*
-/usr/lib/libDrakX/auto/*
-/usr/lib/libDrakX/xf86misc/main.pm
-/usr/lib/libDrakX/Xconfig/*.pm
-%dir /usr/lib/libDrakX/Xconfig
-/usr/lib/libDrakX/*.pm
-
+%{_prefix}/lib/libDrakX/auto/*
+%{_prefix}/lib/libDrakX/xf86misc/main.pm
+%{_prefix}/lib/libDrakX/Xconfig/*.pm
+%dir %{_prefix}/lib/libDrakX/Xconfig
+%{_prefix}/lib/libDrakX/*.pm
