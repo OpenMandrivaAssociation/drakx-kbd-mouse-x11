@@ -1,14 +1,14 @@
 %define drakxtools_required_version  12.40
 
-Summary: 	Tools to configure the keyboard, the mice and the graphic card
+Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
 Version:	0.102
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		System/Configuration/Other
-Url:		https://abf.rosalinux.ru/proyvind/drakx-kbd-mouse-x11
+Url:		https://abf.rosalinux.ru/omv_software/drakx-kbd-mouse-x11
 Source0:	%{name}-%{version}.tar.xz
-
+Patch0:		drakx-kbd-mouse-x11-0.102-support-localectl.patch
 BuildRequires:	gettext
 BuildRequires:	perl-MDK-Common-devel
 BuildRequires:	perl-devel
@@ -36,6 +36,7 @@ XFdrake enables to configure the graphic card.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %make OPTIMIZE="%{optflags} -Os"
