@@ -8,7 +8,6 @@ License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		https://abf.rosalinux.ru/moondrake/drakx-kbd-mouse-x11
 Source0:	%{name}-%{version}.tar.xz
-Patch0:		drakx-kbd-mouse-x11-0.102-support-localectl.patch
 BuildRequires:	gettext
 BuildRequires:	perl-MDK-Common-devel
 BuildRequires:	perl-devel
