@@ -2,7 +2,7 @@
 
 Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
-Version:	0.106
+Version:	0.113
 Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Other
@@ -36,7 +36,6 @@ XFdrake enables to configure the graphic card.
 
 %prep
 %setup -q
-%apply_patches
 
 %build
 %make OPTIMIZE="%{optflags} -Os"
