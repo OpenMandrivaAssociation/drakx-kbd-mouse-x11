@@ -3,12 +3,13 @@
 Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
 Version:	0.102
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		https://abf.rosalinux.ru/omv_software/drakx-kbd-mouse-x11
 Source0:	%{name}-%{version}.tar.xz
 Patch0:		drakx-kbd-mouse-x11-0.102-support-localectl.patch
+Patch1:		drakx-kbd-mouse-x11-0.102-drakx-update-background.patch
 BuildRequires:	gettext
 BuildRequires:	perl-MDK-Common-devel
 BuildRequires:	perl-devel
