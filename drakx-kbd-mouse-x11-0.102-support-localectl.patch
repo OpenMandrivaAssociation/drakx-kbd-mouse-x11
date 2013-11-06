@@ -68,8 +68,8 @@ index 194b63f..64bd108 100644
 -    my %keyboard = getVarsFromSh("$::prefix/etc/sysconfig/keyboard") or return;
 +    local $ENV{LANGUAGE} = 'C';	
 +    my %keyboard;
-+  if (-x $timedatectl) { # systemd dbus based service
-+    foreach (run_program::rooted_get_stdout($::prefix, $timedatectl)) {
++  if (-x $localectl) { # systemd dbus based service
++    foreach (run_program::rooted_get_stdout($::prefix, $localectl)) {
 +	/^ *VC Keymap: (.*)$/ and $keyboard{KEYTABLE} = $1;
 +	/^ *VC Toggle Keymap: (.*)$/ and $keyboard{GRP_TOGGLE} = $1;
 +	/^ *X11 Layout: (.*)$/ and $keyboard{XkbLayout} = $1;
