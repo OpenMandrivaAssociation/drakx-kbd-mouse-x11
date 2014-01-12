@@ -14,6 +14,7 @@ BuildRequires:	perl-MDK-Common-devel
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(xxf86misc)
+BuildRequires:	intltool
 Requires:	drakxtools-curses
 Requires:	%{libname} = %{EVRD}
 Requires:	ldetect-lst >= 0.1.312
