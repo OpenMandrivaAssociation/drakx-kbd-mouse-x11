@@ -1,8 +1,9 @@
-%define drakxtools_required_version  12.40
+%define	_libexecdir %{_prefix}/libexec
+%define libname lib%{name}
 
 Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
-Version:	0.113
+Version:	0.114
 Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Other
@@ -13,13 +14,15 @@ BuildRequires:	perl-MDK-Common-devel
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(xxf86misc)
-Requires:	drakxtools-curses => %drakxtools_required_version
+Requires:	drakxtools-curses
+Requires:	%{libname} = %{EVRD}
 Requires:	ldetect-lst >= 0.1.312
-# need the common pam config files for usermode config
-Requires:	usermode-consoleonly
+Requires:	perl-LDetect >= 0.13.8
+Requires:	polkit
 %ifnarch %{sparcx} %{arm} %{mips}
 Requires:	monitor-edid >= 1.12
 %endif
+Conflicts:	drakxtools-curses <= 14.50
 # for nokmsboot (initrds have to have nokmsboot support and udev has to handle it)
 Conflicts:	mkinitrd < 6.0.93-22
 Conflicts:	dracut < 008-6
@@ -33,6 +36,14 @@ Keyboarddrake enables to configure  the keyboard.
 Mousedrake enables to configure the mice.
 XFdrake enables to configure the graphic card.
 
+%package -n	%{libname}
+Summary:	DrakX X11 tools library
+Group:		System/Configuration/Other
+Conflicts:	drakx-kbd-mouse-x11 < 0.113
+
+%description -n %{libname}
+This package contains the DrakX X11 tools library.
+
 %prep
 %setup -q
 
@@ -42,24 +53,7 @@ XFdrake enables to configure the graphic card.
 %install
 %makeinstall_std
 
-#install lang
 %find_lang %{name}
-
-# consolehelper configuration
-# ask for user password
-ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/XFdrake
-mkdir -p %{buildroot}%{_sysconfdir}/pam.d/
-ln -sf %{_sysconfdir}/pam.d/mandriva-simple-auth %{buildroot}%{_sysconfdir}/pam.d/xfdrake
-mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
-cat > %{buildroot}%{_sysconfdir}/security/console.apps/xfdrake <<EOF
-USER=<user>
-PROGRAM=%{_sbindir}/XFdrake
-FALLBACK=false
-SESSION=true
-EOF
-
-ln -s %{_sysconfdir}/security/console.apps/xfdrake \
-        %{buildroot}%{_sysconfdir}/security/console.apps/XFdrake
 
 # add nokmsboot if necessary and rebuild initrds so that they handle it
 %triggerpostun -- drakx-kbd-mouse-x11 < 0.91
@@ -68,13 +62,21 @@ perl -I%{_prefix}/lib/libDrakX -MXconfig::various -e 'Xconfig::various::setup_km
 
 %files -f %{name}.lang
 %doc COPYING NEWS
-%config(noreplace) %{_sysconfdir}/pam.d/xfdrake
-%config(noreplace) %{_sysconfdir}/security/console.apps/xfdrake
-# symlink
-%{_sysconfdir}/security/console.apps/XFdrake
 /sbin/display_driver_helper
+%{_sbindir}/drakx-update-background
+%{_bindir}/drakkeyboard
+%{_bindir}/drakmouse
+%{_bindir}/drakx11
+%{_bindir}/keyboarddrake
+%{_bindir}/mousedrake
 %{_bindir}/XFdrake
-%{_sbindir}/*
+%{_bindir}/Xdrakres
+%{_libexecdir}/drakkeyboard
+%{_libexecdir}/drakmouse
+%{_libexecdir}/drakx11
+%{_datadir}/polkit-1/actions/*.policy
+
+%files -n %{libname}
 %{_datadir}/libDrakX/pixmaps/*
 %{_prefix}/lib/libDrakX/auto/*
 %{_prefix}/lib/libDrakX/xf86misc/main.pm
