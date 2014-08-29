@@ -1,10 +1,3 @@
-removed_sources:
-  drakx-kbd-mouse-x11-0.107.tar.xz: aadfbad4b55b4a053251f42886992d5c8640801d
-  drakx-kbd-mouse-x11-0.108.tar.xz: 1cc9a546d9c7fed98d23dd1213af84b6065edf99
-  drakx-kbd-mouse-x11-0.109.tar.xz: c332cec5e7dd902b55d0d501bd9d75b9d8c8bb74
-  drakx-kbd-mouse-x11-0.110.tar.xz: 78a50b38e64291350898e34f7017704cba53b024
-  drakx-kbd-mouse-x11-0.111.tar.xz: dac4a8d46e78f9af9ade9174db677976f3d674a4
-  drakx-kbd-mouse-x11-0.112.tar.xz: 441656de3327e76d1a5a1b8c8fc51dad41d7c83c
-  drakx-kbd-mouse-x11-0.113.tar.xz: 08549944c5ed4ed3a4e8e52b605278a77a05b1af
+
 sources:
   drakx-kbd-mouse-x11-0.114.tar.xz: 77b566e8afc5d81d0c2675ff615a75e098266d69
