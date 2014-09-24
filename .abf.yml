@@ -1,3 +1,4 @@
-
-sources:
+removed_sources:
   drakx-kbd-mouse-x11-0.114.tar.xz: 77b566e8afc5d81d0c2675ff615a75e098266d69
+sources:
+  drakx-kbd-mouse-x11-0.115.tar.xz: 1774ede20d1a6c917333e353761c992b636e3617
