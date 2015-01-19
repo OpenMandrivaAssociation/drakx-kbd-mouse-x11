@@ -23,7 +23,7 @@ Requires:	polkit
 %ifnarch %{sparcx} %{arm} %{mips}
 Requires:	monitor-edid >= 1.12
 %endif
-Conflicts:	drakxtools-curses <= 14.50
+Conflicts:	drakxtools-curses < 14.56-6
 # for nokmsboot (initrds have to have nokmsboot support and udev has to handle it)
 Conflicts:	mkinitrd < 6.0.93-22
 Conflicts:	dracut < 008-6
@@ -49,7 +49,7 @@ This package contains the DrakX X11 tools library.
 %setup -q
 
 %build
-%make OPTIMIZE="%{optflags} -Os"
+%make OPTIMIZE="%{optflags}"
 
 %install
 %makeinstall_std
