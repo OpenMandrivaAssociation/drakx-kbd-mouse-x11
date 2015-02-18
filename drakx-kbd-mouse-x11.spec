@@ -3,7 +3,7 @@
 Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
 Version:	0.115
-Release:	1
+Release:	1.1
 License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		https://abf.rosalinux.ru/omv_software/drakx-kbd-mouse-x11
@@ -14,7 +14,7 @@ BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(xxf86misc)
 Requires:	drakxtools-curses => %drakxtools_required_version
-Requires:	ldetect-lst >= 0.1.312
+Requires:	ldetect-lst >= 0.1.327.6
 # need the common pam config files for usermode config
 Requires:	usermode-consoleonly
 %ifnarch %{sparcx} %{arm} %{mips}
