@@ -4,7 +4,7 @@
 Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
 Version:	1.2.1
-Release:	4
+Release:	6
 License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		https://abf.rosalinux.ru/moondrake/drakx-kbd-mouse-x11
@@ -17,9 +17,10 @@ BuildRequires:	pkgconfig(xxf86misc)
 BuildRequires:	intltool
 Requires:	drakxtools-curses
 Requires:	%{libname} = %{EVRD}
-Requires:	ldetect-lst >= 0.1.312
+Requires:	ldetect-lst >= 0.1.327.6
 Requires:	perl-LDetect >= 0.13.11-2
 Requires:	polkit
+Requires:	xdm
 %ifnarch %{sparcx} %{arm} %{mips}
 Requires:	monitor-edid >= 1.12
 %endif
