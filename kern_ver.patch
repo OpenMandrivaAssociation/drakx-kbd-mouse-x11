@@ -1,0 +1,24 @@
+commit 0a3add767d58f0b28ac47c6f83e5c3ec350813c2
+Author: crisb <crisb@localhost.localdomain>
+Date:   Thu Jul 7 14:05:31 2016 +0100
+
+    bug 1773 fix the way we get the kernel devel package name
+
+diff --git a/lib/Xconfig/card.pm b/lib/Xconfig/card.pm
+index cef3d00..5c3d0d1 100644
+--- a/lib/Xconfig/card.pm
++++ b/lib/Xconfig/card.pm
+@@ -332,10 +332,10 @@ sub install_server {
+ 	if (@pkgs && (!$o_in || $o_in->ask_yesorno('', formatAlaTeX(N("There is a proprietary driver available for your video card which may support additional features.
+ Do you wish to use it?")), 1))) {
+ 	    push @packages, @pkgs;
+-	    my $kernel_pkgs_devel = `uname -r`;
+-	    $kernel_pkgs_devel =~ s/^[^\-]+-(.*)-[^\-]+$/$1/;
++	    my $kernel_ver = `uname -r`;
++	    my $kernel_pkgs_devel = `rpm -q --queryformat='\%{NAME}' -f /lib/modules/$kernel_ver`;
++	    $kernel_pkgs_devel =~ s/(.*)-[^\-]+-[^\-]+$/$1/;
+ 	    $kernel_pkgs_devel .= '-devel-latest';
+-	    $kernel_pkgs_devel = 'kernel-'.$kernel_pkgs_devel;
+ 	    $do_pkgs->ensure_is_installed($kernel_pkgs_devel);
+ 	} else {
+ 	    delete $card->{Driver2};
