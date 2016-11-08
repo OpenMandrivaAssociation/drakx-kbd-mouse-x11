@@ -3,8 +3,8 @@
 
 Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
-Version:	1.2.3
-Release:	2
+Version:	1.2.4
+Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		https://abf.rosalinux.ru/moondrake/drakx-kbd-mouse-x11
