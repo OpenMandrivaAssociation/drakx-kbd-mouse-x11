@@ -21,7 +21,7 @@ Requires:	ldetect-lst >= 0.1.327.6
 Requires:	perl-LDetect >= 0.13.11-2
 Requires:	polkit
 Requires:	xdm
-%ifnarch %{sparcx} %{arm} %{mips}
+%ifarch %{ix86} x86_64
 Requires:	monitor-edid >= 1.12
 %endif
 Conflicts:	drakxtools-curses < 14.56-6
