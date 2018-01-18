@@ -3,11 +3,11 @@
 
 Summary:	Tools to configure the keyboard, the mice and the graphic card
 Name:		drakx-kbd-mouse-x11
-Version:	1.2.5
+Version:	1.2.6
 Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Other
-Url:		https://abf.rosalinux.ru/moondrake/drakx-kbd-mouse-x11
+Url:		https://github.com/OpenMandrivaSoftware/drakx-kbd-mouse-x11
 Source0:	%{name}-%{version}.tar.xz
 BuildRequires:	gettext
 BuildRequires:	perl-MDK-Common-devel
@@ -21,7 +21,7 @@ Requires:	ldetect-lst >= 0.1.327.6
 Requires:	perl-LDetect >= 0.13.11-2
 Requires:	polkit
 Requires:	xdm
-%ifnarch %{sparcx} %{arm} %{mips}
+%ifarch %{ix86} x86_64
 Requires:	monitor-edid >= 1.12
 %endif
 Conflicts:	drakxtools-curses < 14.56-6
