@@ -9,6 +9,7 @@ License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		https://github.com/OpenMandrivaSoftware/drakx-kbd-mouse-x11
 Source0:	%{name}-%{version}.tar.xz
+BuildRequires:	make
 BuildRequires:	gettext
 BuildRequires:	perl-MDK-Common-devel
 BuildRequires:	perl-devel
